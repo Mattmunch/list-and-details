@@ -1,7 +1,7 @@
 import React from 'react';
-import Characters from '../components/characters/Characters';
+import RickAndMorty from './rickAndMorty';
 
 export default function App() {
-  return <Characters />;
+  return <RickAndMorty />;
 }
   

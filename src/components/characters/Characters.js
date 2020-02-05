@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import useCharacters from '../../hooks/useCharacters';
-import Pagination from '../Pagination';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Characters = () => {
-  const [currentUrl, setCurrentUrl] = useState('https://rickandmortyapi.com/api/character/?page=1');
-  const characters = useCharacters(currentUrl);
+
+const Characters = ({ characters }) => {
   const characterElements = characters.results.map((character, i) => (
     <li key={i}>
       <h1>{character.name}</h1>
@@ -12,13 +10,13 @@ const Characters = () => {
     </li>
   ));
   return (
-    <>
-      <ul>
-        {characterElements}
-      </ul>
-      <Pagination characters={characters} setCurrentUrl={setCurrentUrl}/>   
-    </>
+    <ul>
+      {characterElements}
+    </ul>   
   );
     
+};
+Characters.propTypes = {
+  characters: PropTypes.object.isRequired,
 };
 export default Characters;
